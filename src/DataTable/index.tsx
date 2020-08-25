@@ -3,8 +3,15 @@ import React from 'react'
 import Pagination from './Pagination'
 import Row from './Row'
 import Search from './Search'
+import _ from 'lodash'
 
-class DataTable extends React.Component {
+export interface DataTablePropsType{
+  rows:any[];
+  rowsPerPage:number;
+  locale: string;
+}
+
+class DataTable extends React.Component<DataTablePropsType> {
   state = {
     rows: this.props.rows,
     currentPageNumber: 0,
@@ -15,15 +22,15 @@ class DataTable extends React.Component {
     rowsPerPage: 40
   }
 
-  calculateTotalNumberOfPages(rows) {
+  calculateTotalNumberOfPages(rows:any[]) {
     const { rowsPerPage } = this.props
-    if (rowsPerPage == 0) return 0
+    if (rowsPerPage === 0) return 0
     return Math.ceil(rows.length / rowsPerPage)
   }
 
-  search(event) {
+  search(event: React.ChangeEvent<HTMLInputElement>) {
     const { rows } = this.props
-    const text = event.target.value
+    const text = _.get(event,'target.value','');
     let rowsFound = rows
 
     if (text) {
@@ -40,11 +47,11 @@ class DataTable extends React.Component {
     })
   }
 
-  changeToPageNumber(pageNumber) {
+  changeToPageNumber(pageNumber: number) {
     this.setState({ currentPageNumber: pageNumber })
   }
 
-  rowsInPageNumber(pageNumber) {
+  rowsInPageNumber(pageNumber: number) {
     const { rowsPerPage } = this.props
     const startIndex = pageNumber * rowsPerPage
     return [startIndex, startIndex + rowsPerPage]
