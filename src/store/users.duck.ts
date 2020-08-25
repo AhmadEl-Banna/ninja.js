@@ -42,14 +42,14 @@ const initialState: UsersState = {
 };
 // Reducers
 
-const search: Reducer<UsersState, SearchAction> = (state, { payload }) =>
+const search: Reducer<UsersState | undefined, SearchAction> = (state, { payload }) =>
   produce(state, (draft: Draft<UsersState>) => {
     if (payload) {
       draft.searchText = payload;
     }
   });
 
-const changePage: Reducer<UsersState, ChangePageAction> = (state, { payload }) =>
+const changePage: Reducer<UsersState | undefined, ChangePageAction> = (state, { payload }) =>
   produce(state, (draft: Draft<UsersState>) => {
     if (payload !== undefined) draft.currentPageNumber = payload;
   });
