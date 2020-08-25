@@ -7,10 +7,10 @@ export interface Action<Payload> extends RawAction<string> {
 export type ActionCreator<Payload> = (payload?: Payload) => Action<Payload>;
 
 // use this function to septate switch case reducers to dictionary of small reducers as values and Action types as key
-export default function createReducer<TState>(
+export function createReducer<TState>(
   initialState: TState,
   handler: {
-    [action: string]: Reducer<TState, RawAction>;
+    [action: string]: Reducer<TState, any>;
   }
 ): Reducer<TState, RawAction> {
   return (state = initialState, action: RawAction): TState => {

@@ -1,7 +1,11 @@
-import { Reducer } from 'redux';
-import { Action } from './utils';
-import { User } from '../User';
+import { combineReducers } from 'redux';
 
-const rootReducer: Reducer<{ users?: User[] }, Action<undefined>> = (state) => ({ ...state });
+import UsersReducer, { UsersState } from './users.duck';
 
-export default rootReducer;
+export interface AppState {
+  users: UsersState;
+}
+
+export default combineReducers({
+  users: UsersReducer,
+});

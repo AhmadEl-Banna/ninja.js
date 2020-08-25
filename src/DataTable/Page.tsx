@@ -24,7 +24,7 @@ const Page: FunctionComponent<PagePropType> = (props) => {
   if (isActivePage()) {
     return (
       <li className="page-item mr-1">
-        <button className="page-link button-outline" onClick={click}>
+        <button className="page-link button-outline" onClick={() => onChange(pageNumber)}>
           {renderedPageNumber()}
         </button>
       </li>
