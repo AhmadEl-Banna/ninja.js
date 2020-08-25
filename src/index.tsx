@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 
 import get from 'lodash/get';
 
-import App, { User } from './App';
+import App from './App';
+import { User } from './User';
 
 const userDataEl = document.getElementById('user-data');
 

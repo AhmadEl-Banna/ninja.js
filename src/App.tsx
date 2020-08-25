@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import DataTable from './DataTable';
+import { Provider } from 'react-redux';
 import './App.css';
+import { User } from './User';
+import configureStore from './store';
 
 // in development this will add a log if the component rerender with the same prop values
 if (process.env.NODE_ENV === 'development') {
@@ -8,13 +11,6 @@ if (process.env.NODE_ENV === 'development') {
   whyDidYouRender(React, {
     trackAllPureComponents: true,
   });
-}
-
-export interface User {
-  name1: string;
-  email: string;
-  edit_path: string;
-  per_id: number;
 }
 
 export interface AppPropsType {
@@ -26,9 +22,11 @@ export interface AppPropsType {
 class App extends Component<AppPropsType> {
   render() {
     return (
-      <div className="container mt-3">
-        <DataTable {...this.props} />
-      </div>
+      <Provider store={configureStore()}>
+        <div className="container mt-3">
+          <DataTable {...this.props} />
+        </div>
+      </Provider>
     );
   }
 }

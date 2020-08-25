@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { User } from '../App';
+import { User } from '../User';
 
 const Row = (props: { row: User }) => {
   const { row } = props;
