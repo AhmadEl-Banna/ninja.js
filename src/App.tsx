@@ -14,7 +14,6 @@ if (process.env.NODE_ENV === 'development') {
 
 class App extends Component {
   render() {
-    console.log('App render');
     return (
       <Provider store={configureStore()}>
         <div className="container mt-3">

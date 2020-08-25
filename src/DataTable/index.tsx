@@ -44,7 +44,6 @@ const UsersDataTable: FunctionComponent = () => {
   const changeToPageNumber = useChangePageNumber();
   const currentPageNumber = useSelector(getCurrentPageNumber);
   const users = useSelector(geDisplayUsers);
-  console.log('uSers', users);
   const rowsToRender = users.map((row) => <Row key={row.per_id} row={row} />);
   return (
     <div>

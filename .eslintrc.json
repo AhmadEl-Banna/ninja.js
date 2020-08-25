@@ -21,10 +21,7 @@
   "rules": {
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
-    "indent": [
-      "error",
-      2
-    ],
+    "indent": "off", // conflict with prettier rules
     "linebreak-style": [
       "error",
       "unix"
