@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import DataTable from "./DataTable";
-import "./App.css";
+import React, { Component } from 'react';
+import DataTable from './DataTable';
+import './App.css';
 
 // in development this will add a log if the component rerender with the same prop values
-if (process.env.NODE_ENV === "development") {
-  const whyDidYouRender = require("@welldone-software/why-did-you-render");
+if (process.env.NODE_ENV === 'development') {
+  const whyDidYouRender = require('@welldone-software/why-did-you-render');
   whyDidYouRender(React, {
     trackAllPureComponents: true,
   });
@@ -19,7 +19,7 @@ export interface User {
 
 export interface AppPropsType {
   rows: User[];
-  rowsPerPage:number;
+  rowsPerPage: number;
   locale: string;
 }
 

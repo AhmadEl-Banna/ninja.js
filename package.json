@@ -14,6 +14,16 @@
     "react-scripts": "3.4.3",
     "react-test-renderer": "^16.13.1"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --no-stash",
+      "pre-push": "yarn test"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,jsx,css}": "prettier --write",
+    "./src/**/*.{js,ts,tsx}": "eslint"
+  },
   "scripts": {
     "start": "react-scripts start --env=development",
     "build": "react-scripts build",
@@ -38,6 +48,9 @@
     "@types/lodash": "^4.14.160",
     "@types/react": "^16.9.47",
     "@welldone-software/why-did-you-render": "^5.0.0-alpha.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.12",
+    "prettier": "^2.1.0",
     "typescript": "^4.0.2"
   }
 }
